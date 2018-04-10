@@ -1,0 +1,47 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+
+  
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+
+      h4(class=['ui','header','blue', 'dividing'])='Gestión de Calificaciones'
+
+
+      span='permite consultar los registros de los Calificaciones'
+      
+
+      table(class=['ui','table','celled'] id='tbl-calificaciones')
+        thead
+          tr
+
+            th='id'
+            th='no control alumno'
+            th='materia'
+            th='calificacion'
+            
+          tbody
+
+            each calificacion in calificaciones
+              tr
+
+                td(id='id')= calificacion.id
+                td= calificacion.nocontrol_alumno
+                td= calificacion.materia
+                td= calificacion.calificacion
+               
+                td 
+                  a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar calificacion' data-position='top center' id='btn-eliminar')
+
+                    i(class=['trash icon'])
+
+                  a(class=['ui button basic icon'] href='http://localhost:3000/modificarcalificacion/'+calificacion.id data-inverted='' data-tooltip='Modificar calificacion' data-position='top center' )
+
+                    i(class=['options icon'])                
+  script(src='/javascripts/calificacion.js')
+
+

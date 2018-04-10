@@ -1,0 +1,47 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+
+  
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['sixteen', 'wide', 'column'])
+
+      h4(class=['ui','header','blue', 'dividing'])='Gestión de Estudiantes'
+
+
+      span='permite consultar los registros de los Estudiantes'
+      
+
+      table(class=['ui','table','celled'] id='tbl-estudiantes')
+        thead
+          tr
+            th='id'
+            th='nocontrol'
+            th='nombre'
+            th='grado'
+            th='grupo'
+          tbody
+            each estudiante in estudiantes
+              tr
+                td(id='id')= estudiante.id
+                td= estudiante.nocontrol
+                td= estudiante.nombre
+                td= estudiante.grado
+                td= estudiante.grupo
+                td 
+                  a(class=['ui button basic icon'] href='#' data-inverted='' data-tooltip='Eliminar Estudiante' data-position='top center' id='btn-eliminar')
+
+                    i(class=['trash icon'])
+
+                  a(class=['ui button basic icon'] href='http://localhost:3000/modificarestudiante/'+estudiante.id data-inverted='' data-tooltip='Modificar Estudiante' data-position='top center' )
+
+                    i(class=['options icon'])                
+  script(src='/javascripts/Estudiante.js')
+
+
+
+
+

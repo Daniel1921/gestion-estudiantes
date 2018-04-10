@@ -1,0 +1,45 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+
+  
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+
+      h4(class=['ui','header','blue', 'dividing'])='Gestión de calificaciones'
+
+
+      span='permite crear los registros de las calificaciones'
+
+      div(class='form-nuevacalificacion')
+        form(class=['ui','form'] action='http://localhost:3000/crearcalificacion' method='post')
+                   
+          div(class=['ui','two','fields'])
+            div(class=['ui','field'])
+              label(for='nocontrol_alumno')='no control del estudiante'
+              input(type='text' name='nocontrol_alumno' placeholder='nocontrol')
+            div(class=['ui','field'])
+              label(for='materia')='materia'
+              input(type='text' name='materia' placeholder='materia')    
+
+          
+          div(class=['ui','field'])
+              label(for='calificacion')='calificaciones del estudiante'
+              input(type='text' name='calificacion' placeholder='calificacion')
+            
+          div(class=['ui','field']) 
+               button(class=['ui','button','basic','black'])='Ingresar calificacion' 
+               div(class=['ui','message','error'])
+
+        if info != undefined
+          div(class=['ui','message','success'])
+            i(class=['close','icon'])
+            div(class='header')='calificación registrada'
+            p=info
+
+
+  script(src='/javascripts/validacion2.js')       
+                  

@@ -1,0 +1,45 @@
+extends ../default
+
+block content
+
+  include ../templates/nav
+
+
+  
+  div(class=['ui', 'container', 'grid', 'stackable'])
+    div(class=['ten', 'wide', 'column'])
+
+      h4(class=['ui','header','blue', 'dividing'])='actualizar estudiante'
+
+
+      span='permite actualizar a los estudiantes dependiendo del ID de cada uno'
+
+      div(class='form-nuevoestudiante')
+        form(class=['ui','form'] action='http://localhost:3000/actualizar' method='post')
+          div(class=['ui','field'])
+            label(for='id')='id del estudiante'
+            input(type='text' name='id' placeholder='id' value=estudiante[0].id)
+            
+          div(class=['ui','two','fields'])
+            div(class=['ui','field'])
+              label(for='nocontrol')='no control del estudiante'
+              input(type='text' name='nocontrol' placeholder='nocontrol' value=estudiante[0].nocontrol )
+            div(class=['ui','field'])
+              label(for='nombre')='nombre del estudiante'
+              input(type='text' name='nombre' placeholder='nombre' value=estudiante[0].nombre )    
+
+          div(class=['ui','two','fields'])
+            div(class=['ui','field'])
+              label(for='grado')='grado del estudiante'
+              input(type='text' name='grado' placeholder='grado' value=estudiante[0].grado )
+            div(class=['ui','field'])
+              label(for='grupo')='grupo del estudiante'
+              input(type='text' name='grupo' placeholder='grupo' value=estudiante[0].grupo) 
+
+          div(class=['ui','field']) 
+               button(class=['ui','button','basic','black'])='Actualizar Estudiante' 
+               div(class=['ui','message','error'])
+       
+
+  script(src='/javascripts/validacion.js')       
+                  
